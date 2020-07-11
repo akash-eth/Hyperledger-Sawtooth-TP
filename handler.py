@@ -72,3 +72,9 @@ class XoTransactionHandler(TransactionHandler):
 
     if len(addresses) < 1:
         raise InternalError("State Error")
+
+    def _decode_data(self, data):
+    return data.decode().split(',')
+
+    def _encode_data(self, data):
+    return ','.join(data).encode()
