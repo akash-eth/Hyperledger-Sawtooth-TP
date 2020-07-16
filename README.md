@@ -1,2 +1,2 @@
 # Hyperledger-Sawtooth
-Using python SDK's for developing a Sawtooth network
+Developing Hyperledger-Sawtooth network using Python's SDK.

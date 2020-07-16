@@ -49,6 +49,3 @@ def _store_game_data(self, game_name, game_data, context):
     addresses = context.set_state(
         {game_address: encoded_game_data}
     )
-
-    if len(addresses) < 1:
-        raise InternalError("State Error")
