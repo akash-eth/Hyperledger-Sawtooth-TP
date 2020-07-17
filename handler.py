@@ -64,9 +64,4 @@ class XoTransactionHandler(TransactionHandler):
     def _store_game_data(self, game_name, game_data, context):
     game_address = self._make_game_address(game_name)
 
-    encoded_game_data = self._encode_data(game_data)
-
-    addresses = context.set_state(
-        {game_address: encoded_game_data}
-    )
-
+   
