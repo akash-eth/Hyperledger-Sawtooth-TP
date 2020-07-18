@@ -56,12 +56,5 @@ class XoTransactionHandler(TransactionHandler):
     except:
         raise InternalError("Failed to deserialize game data.")
 
-    def _make_game_address(self, game_name):
-    prefix = self._namespace_prefix
-    game_name_utf8 = game_name.encode('utf-8')
-    return prefix + hashlib.sha512(game_name_utf8).hexdigest()[0:64]
-
-    def _store_game_data(self, game_name, game_data, context):
-    game_address = self._make_game_address(game_name)
 
    
