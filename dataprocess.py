@@ -10,8 +10,8 @@ def _unpack_transaction(self, transaction):
 
     return signer, game_name, action, space
 
-    #correcting the game data processing:
-    def _get_state_data(self, game_name, context):
+#correcting the game data processing:
+def _get_state_data(self, game_name, context):
     game_address = self._make_game_address(game_name)
 
     state_entries = context.get_state([game_address])
@@ -23,14 +23,14 @@ def _unpack_transaction(self, transaction):
     except:
         raise InternalError("Failed to deserialize game data.")
 
-    #making game data address:
-    def _make_game_address(self, game_name):
+#making game data address:
+def _make_game_address(self, game_name):
     prefix = self._namespace_prefix
     game_name_utf8 = game_name.encode('utf-8')
     return prefix + hashlib.sha512(game_name_utf8).hexdigest()[0:64]
 
-    #storing the game data:
-    def _store_game_data(self, game_name, game_data, context):
+#storing the game data:
+def _store_game_data(self, game_name, game_data, context):
     game_address = self._make_game_address(game_name)
 
     encoded_game_data = self._encode_data(game_data)
@@ -41,3 +41,10 @@ def _unpack_transaction(self, transaction):
 
     if len(addresses) < 1:
         raise InternalError("State Error")
+
+#BSON formatting:
+def _decode_data(self, data):
+    return data.decode().split(',')
+
+def _encode_data(self, data):
+    return ','.join(data).encode()
