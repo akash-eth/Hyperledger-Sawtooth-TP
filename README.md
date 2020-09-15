@@ -1,2 +1,2 @@
-# Hyperledger-Sawtooth
-Developing Hyperledger-Sawtooth network using Python's SDK.
+#### ================Hyperledger-Sawtooth================ ####
+Developing a Sawtooth Transaction processor i.e smart contract using Python's SDK.
